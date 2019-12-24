@@ -32,7 +32,7 @@ public class ConsumerApplication {
 
             // 声明交换机,topic类型，持久化,非自动删除
             String exchangeName = "order-exchange";
-            channel.exchangeDeclare(exchangeName, "topic", true, false, null);
+            channel.exchangeDeclare(exchangeName, BuiltinExchangeType.TOPIC, true, false, null);
             // 声明队列
             String queueName = "order-queue";
             channel.queueDeclare(queueName, true, false, false, null);

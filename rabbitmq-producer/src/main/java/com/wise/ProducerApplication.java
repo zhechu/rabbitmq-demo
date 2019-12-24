@@ -1,5 +1,6 @@
 package com.wise;
 
+import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -33,7 +34,7 @@ public class ProducerApplication {
             channel = connection.createChannel();
             // 声明交换机,topic类型，持久化,非自动删除
             String exchangeName = "order-exchange";
-            channel.exchangeDeclare(exchangeName, "topic", true, false, null);
+            channel.exchangeDeclare(exchangeName, BuiltinExchangeType.TOPIC, true, false, null);
             Order order = new Order();
             order.setOrderName("order1");
             order.setAmount(5000F);
